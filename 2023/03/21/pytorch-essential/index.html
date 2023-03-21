@@ -419,7 +419,7 @@ print(a1.device, a1, sep='\n')
 device = (torch.device('cuda') if torch.cuda.is_available() else torch.device('cpu'))
 print(device)  # print('cuda')代表可以使用GPU
 </code></pre>
-<p><em>1.10.0+cu113<br>cpu<br>tensor([[0.5499, 0.7371, 0.9104, 0.8024],<br>        [0.7628, 0.3287, 0.3319, 0.1342],<br>        [0.3354, 0.8344, 0.0088, 0.1546]])<br>cuda</em></p>
+<p><em><strong>1.10.0+cu113<br>cpu<br>tensor([[0.5499, 0.7371, 0.9104, 0.8024],<br>        [0.7628, 0.3287, 0.3319, 0.1342],<br>        [0.3354, 0.8344, 0.0088, 0.1546]])<br>cuda</strong></em></p>
 <pre class=" language-python="><code class="language-python=">a2 = a1.to(device)  # 將張量由CPU移動到GPU，如果上面device有改變
 print(a1)
 print(a2)
