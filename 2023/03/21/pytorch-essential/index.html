@@ -29,9 +29,9 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 6.3.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<meta name="generator" content="Hexo 6.3.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 
@@ -204,7 +204,7 @@
 <script src="/libs/cryptojs/crypto-js.min.js"></script>
 <script>
     (function() {
-        let pwd = '10388A133DADA0CAA5AF6045D888C0CE3289A1FD851A3C89298CB2211A8A4F22';
+        let pwd = '10388a133dada0caa5af6045d888c0ce3289a1fd851a3c89298cb2211a8a4f22';
         if (pwd && pwd.length > 0) {
             if (pwd !== CryptoJS.SHA256(prompt('請輸入訪問本文章的密碼')).toString(CryptoJS.enc.Hex)) {
                 alert('密碼錯誤，將返回主頁！');
@@ -606,7 +606,7 @@ print(type(x1[1][1].item()))
 print(x1[:2, 1])  # 切片到第二列，取每列第一個元素
 print(x1[:2][1])  # 切片到到二列，並取第一列的所有元素
 
-print(x1[x1 &lt; 5])  # 印出所有小於5的元素
+print(x1[x1 < 5])  # 印出所有小於5的元素
 </code></pre>
 <pre><code>tensor(4)
 tensor(4)
