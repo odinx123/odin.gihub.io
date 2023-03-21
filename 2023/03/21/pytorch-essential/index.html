@@ -29,9 +29,9 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 6.3.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<meta name="generator" content="Hexo 6.3.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 
@@ -419,12 +419,12 @@ print(a1.device, a1, sep='\n')
 device = (torch.device('cuda') if torch.cuda.is_available() else torch.device('cpu'))
 print(device)  # print('cuda')代表可以使用GPU
 </code></pre>
-<p>==1.10.0+cu113<br>cpu<br>tensor([[0.5499, 0.7371, 0.9104, 0.8024],<br>        [0.7628, 0.3287, 0.3319, 0.1342],<br>        [0.3354, 0.8344, 0.0088, 0.1546]])<br>cuda==</p>
+<p><em>1.10.0+cu113<br>cpu<br>tensor([[0.5499, 0.7371, 0.9104, 0.8024],<br>        [0.7628, 0.3287, 0.3319, 0.1342],<br>        [0.3354, 0.8344, 0.0088, 0.1546]])<br>cuda</em></p>
 <pre class=" language-python="><code class="language-python=">a2 = a1.to(device)  # 將張量由CPU移動到GPU，如果上面device有改變
 print(a1)
 print(a2)
 </code></pre>
-<p>==tensor([[0.5499, 0.7371, 0.9104, 0.8024],<br>        [0.7628, 0.3287, 0.3319, 0.1342],<br>        [0.3354, 0.8344, 0.0088, 0.1546]])<br>tensor([[0.5499, 0.7371, 0.9104, 0.8024],<br>        [0.7628, 0.3287, 0.3319, 0.1342],<br>        [0.3354, 0.8344, 0.0088, 0.1546]], device=’cuda:0’)==</p>
+<p><em>tensor([[0.5499, 0.7371, 0.9104, 0.8024],<br>        [0.7628, 0.3287, 0.3319, 0.1342],<br>        [0.3354, 0.8344, 0.0088, 0.1546]])<br>tensor([[0.5499, 0.7371, 0.9104, 0.8024],<br>        [0.7628, 0.3287, 0.3319, 0.1342],<br>        [0.3354, 0.8344, 0.0088, 0.1546]], device=’cuda:0’)</em></p>
 <p>張量(Tensor)是PyTorch的基礎運算單位，是一種資料結構，可以用來儲存及操作資料。<br>PyTorch的張量與NumPy的ndarray十分類似，但有兩個不同處:</p>
 <ul>
 <li>PyTorch的張量能利用GPU進行運算</li>
@@ -454,7 +454,7 @@ print(a1.type())
 # torch.int8
 # torch.uint8
 </code></pre>
-<p>==torch.FloatTensor<br>tensor([1., 2.])<br>torch.FloatTensor<br>torch.LongTensor<br>torch.DoubleTensor==</p>
+<p><em>torch.FloatTensor<br>tensor([1., 2.])<br>torch.FloatTensor<br>torch.LongTensor<br>torch.DoubleTensor</em></p>
 <p>可以使用一些函式建立指定形狀的張量<br>torch.ones() 元素都為1的張量<br>torch.zeros() 元素都為0的張量<br>torch.rand() 隨機分布的張量，大小為[0, 1)<br>torch.randn() 標準常態分佈的張量，平均值為0，變異數為1</p>
 <pre class=" language-python="><code class="language-python=">b1 = torch.zeros(2, 3)  # 建立2列3行的zero張量
 print(b1)
@@ -465,7 +465,7 @@ print(b2)
 b3 = torch.rand(2, 3)  # 建立2列3行的rand張量
 print(b3)
 </code></pre>
-<p>==tensor([[0., 0., 0.],<br>        [0., 0., 0.]])<br>tensor([[1., 1., 1.],<br>        [1., 1., 1.]])<br>tensor([[0.0399, 0.2605, 0.7716],<br>        [0.6981, 0.7787, 0.2807]])==</p>
+<p><em>tensor([[0., 0., 0.],<br>        [0., 0., 0.]])<br>tensor([[1., 1., 1.],<br>        [1., 1., 1.]])<br>tensor([[0.0399, 0.2605, 0.7716],<br>        [0.6981, 0.7787, 0.2807]])</em></p>
 <pre class=" language-python="><code class="language-python="># torch.manual_seed()可以設定亂數種子。當執行torch.rand()時，每次都會得到不同的亂數張量，
 # 但通常在機器學習中，需要重現結果，在這個時候可以明確指定亂數種子，讓張量保持不變。
 
@@ -473,7 +473,7 @@ torch.manual_seed(42)  # 設定亂數種子
 b4 = torch.rand(3, 3)
 print(b4)
 </code></pre>
-<p>==tensor([[0.8823, 0.9150, 0.3829],<br>        [0.9593, 0.3904, 0.6009],<br>        [0.2566, 0.7936, 0.9408]])==</p>
+<p><em>tensor([[0.8823, 0.9150, 0.3829],<br>        [0.9593, 0.3904, 0.6009],<br>        [0.2566, 0.7936, 0.9408]])</em></p>
 <pre class=" language-python="><code class="language-python="># 張量的操作方法名稱後面帶有底線，如zero_()會直接些改張量內記憶體內的值。
 b5 = torch.ones(3, 2)
 b6 = b5.zero_()
@@ -499,13 +499,13 @@ print(c3.type())
 c3 = torch.ones(2, 3).double()
 print(c3.type())
 </code></pre>
-<p>==tensor([[0., 0.],<br>        [0., 0.],<br>        [0., 0.]])<br>2<br>&lt;class ‘torch.Tensor’&gt; &lt;class ‘torch.Tensor’&gt; &lt;class ‘int’&gt;<br>torch.DoubleTensor<br>torch.DoubleTensor<br>torch.DoubleTensor==</p>
+<p><em>tensor([[0., 0.],<br>        [0., 0.],<br>        [0., 0.]])<br>2<br>&lt;class ‘torch.Tensor’&gt; &lt;class ‘torch.Tensor’&gt; &lt;class ‘int’&gt;<br>torch.DoubleTensor<br>torch.DoubleTensor<br>torch.DoubleTensor</em></p>
 <h1 id="2-張量與numpy"><a href="#2-張量與numpy" class="headerlink" title="2. 張量與numpy"></a>2. 張量與numpy</h1><p>PyTorch支援將張量轉成NumPy，只要執行Tensor.numpy()就可以將張量轉成NumPy的ndarray資料型態。</p>
 <pre class=" language-python="><code class="language-python=">d1 = torch.ones(2, 3)
 d1_np = d1.numpy()
 print(type(d1_np), type(d1), sep='\n')
 </code></pre>
-<p>==&lt;class ‘numpy.ndarray’&gt;<br>&lt;class ‘torch.Tensor’&gt;==</p>
+<p><em>&lt;class ‘numpy.ndarray’&gt;<br>&lt;class ‘torch.Tensor’&gt;</em></p>
 <p>若要使用NumPy來建立PyTorch張量，可以執行torch.from_numpy()。</p>
 <pre class=" language-python="><code class="language-python=">import numpy as np
 
@@ -513,7 +513,7 @@ d2_np = np.array([1, 2, 3])
 d2 = torch.from_numpy(d2_np)
 print(type(d2))
 </code></pre>
-<p>==&lt;class ‘torch.Tensor’&gt;==</p>
+<p><em>&lt;class ‘torch.Tensor’&gt;</em></p>
 <p>PyTorch預設會將張量定義再CPU控制的記憶體中，如果要使用GPU加速運算，可以判別系統是否支援GPU，並且在建立張量時指定device屬性。</p>
 <pre class=" language-python="><code class="language-python=">device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 print(device)
@@ -525,7 +525,7 @@ z = x + y  # x跟y都是在GPU記憶體中，所以z也是(x跟y都要在同一�
 
 print(z)
 </code></pre>
-<p>==cuda<br>tensor([[ 8, 10, 12],<br>        [14, 16, 18]], device=’cuda:0’)==</p>
+<p><em>cuda<br>tensor([[ 8, 10, 12],<br>        [14, 16, 18]], device=’cuda:0’)</em></p>
 <p>也可以使用Tensor.to()讓張量在CPU和GPU中移動</p>
 <pre class=" language-python="><code class="language-python=">x = x.to("cpu")
 y = y.to("cpu")
@@ -537,19 +537,14 @@ y = y.to(device)
 z = x + y
 print(z)
 </code></pre>
-<p>==tensor([[ 8, 10, 12],<br>        [14, 16, 18]])<br>tensor([[ 8, 10, 12],<br>        [14, 16, 18]], device=’cuda:0’)==</p>
+<p><em>tensor([[ 8, 10, 12],<br>        [14, 16, 18]])<br>tensor([[ 8, 10, 12],<br>        [14, 16, 18]], device=’cuda:0’)</em></p>
 <pre class=" language-python="><code class="language-python="># shape屬性可以用來查詢張量的形狀
 x1 = torch.tensor([[1, 2], [3, 4], [5, 6], [7, 8]])  # 建立4列2行的張量
 print(x1)
 
 print(x1.shape)  # 列印張量形狀
 </code></pre>
-<pre><code>tensor([[1, 2],
-        [3, 4],
-        [5, 6],
-        [7, 8]])
-torch.Size([4, 2])
-</code></pre>
+<p><em>tensor([[1, 2],<br>        [3, 4],<br>        [5, 6],<br>        [7, 8]])<br>torch.Size([4, 2])</em></p>
 <pre class=" language-python="><code class="language-python="># PyTorch的索引及切片與NumPy相似
 x1 = torch.tensor([[1, 2], [3, 4], [5, 6], [7, 8]])
 print(x1[1, 1])
@@ -562,17 +557,9 @@ print(type(x1[1][1].item()))
 print(x1[:2, 1])  # 切片到第二列，取每列第一個元素
 print(x1[:2][1])  # 切片到到二列，並取第一列的所有元素
 
-print(x1[x1 &lt; 5])  # 印出所有小於5的元素
+print(x1[x1 < 5])  # 印出所有小於5的元素
 </code></pre>
-<pre><code>tensor(4)
-tensor(4)
-4
-&lt;class 'torch.Tensor'&gt;
-&lt;class 'int'&gt;
-tensor([2, 4])
-tensor([3, 4])
-tensor([1, 2, 3, 4])
-</code></pre>
+<p><em>tensor(4)<br>tensor(4)<br>4<br>&lt;class ‘torch.Tensor’&gt;<br>&lt;class ‘int’&gt;<br>tensor([2, 4])<br>tensor([3, 4])<br>tensor([1, 2, 3, 4])</em></p>
 <pre class=" language-python="><code class="language-python=">
 </code></pre>
 
