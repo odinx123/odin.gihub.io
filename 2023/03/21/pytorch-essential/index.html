@@ -214,7 +214,7 @@
 <script src="/libs/cryptojs/crypto-js.min.js"></script>
 <script>
     (function() {
-        let pwd = '10388a133dada0caa5af6045d888c0ce3289a1fd851a3c89298cb2211a8a4f22';
+        let pwd = '';
         if (pwd && pwd.length > 0) {
             if (pwd !== CryptoJS.SHA256(prompt('請輸入訪問本文章的密碼')).toString(CryptoJS.enc.Hex)) {
                 alert('密碼錯誤，將返回主頁！');
