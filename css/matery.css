@@ -538,7 +538,6 @@ header .go-back i {
     border: 0;
     overflow: hidden;
     background-position: center center;
-    /* background-size: cover; */
     background-size: contain;
     transform: translate3d(0px, 0px, 0px);
 }
