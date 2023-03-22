@@ -533,17 +533,17 @@ header .go-back i {
     position: relative;
     display: flex;
     align-items: center;
-    height: 20vh;
+    height: 60px;
     padding: 0;
     border: 0;
     overflow: hidden;
     background-position: center center;
-    background-size: 20%;
+    background-size: cover;
     transform: translate3d(0px, 0px, 0px);
 }
 
 .index-cover {
-    height: 20;
+    height: 100vh;
 }
 
 .post-cover {
