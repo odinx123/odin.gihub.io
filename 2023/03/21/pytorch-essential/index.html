@@ -384,7 +384,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-03-28
+                    2023-03-30
                 </div>
                 
 
@@ -418,21 +418,21 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="1-PyTorch基礎語法"><a href="#1-PyTorch基礎語法" class="headerlink" title="1. PyTorch基礎語法"></a>1. PyTorch基礎語法</h1><pre class=" language-python="><code class="language-python=">import torch
+                <h1 id="1-PyTorch基礎語法"><a href="#1-PyTorch基礎語法" class="headerlink" title="1. PyTorch基礎語法"></a>1. PyTorch基礎語法</h1><pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> torch
 </code></pre>
-<pre class=" language-python="><code class="language-python=">print(torch.__version__)  # 列印PyTorch版本
+<pre class=" language-python"><code class="language-python"><span class="token keyword">print</span><span class="token punctuation">(</span>torch<span class="token punctuation">.</span>__version__<span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 列印PyTorch版本</span>
 
-a1 = torch.rand(3, 4)  # 建立3列4行的亂數矩陣
-print(a1.device, a1, sep='\n')
+a1 <span class="token operator">=</span> torch<span class="token punctuation">.</span>rand<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 建立3列4行的亂數矩陣</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>a1<span class="token punctuation">.</span>device<span class="token punctuation">,</span> a1<span class="token punctuation">,</span> sep<span class="token operator">=</span><span class="token string">'\n'</span><span class="token punctuation">)</span>
 
-# 如果系統支援GPU就將device = cuda
-device = (torch.device('cuda') if torch.cuda.is_available() else torch.device('cpu'))
-print(device)  # print('cuda')代表可以使用GPU
+<span class="token comment" spellcheck="true"># 如果系統支援GPU就將device = cuda</span>
+device <span class="token operator">=</span> <span class="token punctuation">(</span>torch<span class="token punctuation">.</span>device<span class="token punctuation">(</span><span class="token string">'cuda'</span><span class="token punctuation">)</span> <span class="token keyword">if</span> torch<span class="token punctuation">.</span>cuda<span class="token punctuation">.</span>is_available<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">else</span> torch<span class="token punctuation">.</span>device<span class="token punctuation">(</span><span class="token string">'cpu'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>device<span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># print('cuda')代表可以使用GPU</span>
 </code></pre>
 <p><em><strong>1.10.0+cu113<br>cpu<br>tensor([[0.5499, 0.7371, 0.9104, 0.8024],<br>        [0.7628, 0.3287, 0.3319, 0.1342],<br>        [0.3354, 0.8344, 0.0088, 0.1546]])<br>cuda</strong></em></p>
-<pre class=" language-python="><code class="language-python=">a2 = a1.to(device)  # 將張量由CPU移動到GPU，如果上面device有改變
-print(a1)
-print(a2)
+<pre class=" language-python"><code class="language-python">a2 <span class="token operator">=</span> a1<span class="token punctuation">.</span>to<span class="token punctuation">(</span>device<span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 將張量由CPU移動到GPU，如果上面device有改變</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>a1<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>a2<span class="token punctuation">)</span>
 </code></pre>
 <p><em><strong>tensor([[0.5499, 0.7371, 0.9104, 0.8024],<br>        [0.7628, 0.3287, 0.3319, 0.1342],<br>        [0.3354, 0.8344, 0.0088, 0.1546]])<br>tensor([[0.5499, 0.7371, 0.9104, 0.8024],<br>        [0.7628, 0.3287, 0.3319, 0.1342],<br>        [0.3354, 0.8344, 0.0088, 0.1546]], device=’cuda:0’)</strong></em></p>
 <p>張量(Tensor)是PyTorch的基礎運算單位，是一種資料結構，可以用來儲存及操作資料。<br>PyTorch的張量與NumPy的ndarray十分類似，但有兩個不同處:</p>
@@ -442,135 +442,135 @@ print(a2)
 <li>使用torch.Tensor()</li>
 <li>使用torch.tensor()</li>
 </ul>
-<pre class=" language-python="><code class="language-python=">a1 = torch.Tensor([1, 2])  # Tensor只會建立32位元浮點數的張量
-print(a1.type())
-print(a1)
+<pre class=" language-python"><code class="language-python">a1 <span class="token operator">=</span> torch<span class="token punctuation">.</span>Tensor<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># Tensor只會建立32位元浮點數的張量</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>a1<span class="token punctuation">.</span>type<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>a1<span class="token punctuation">)</span>
 
-a1 = torch.tensor([[1.0, 2]])  # tensor會根據傳入數據建立對應張量
-print(a1.type())
-a1 = torch.tensor([1, 2])
-print(a1.type())
+a1 <span class="token operator">=</span> torch<span class="token punctuation">.</span>tensor<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">1.0</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># tensor會根據傳入數據建立對應張量</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>a1<span class="token punctuation">.</span>type<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+a1 <span class="token operator">=</span> torch<span class="token punctuation">.</span>tensor<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>a1<span class="token punctuation">.</span>type<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 
-a1 = torch.tensor([1, 2], dtype=torch.double)  # 使用tensor建立張量可以使用dtype指定型別
-print(a1.type())
+a1 <span class="token operator">=</span> torch<span class="token punctuation">.</span>tensor<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span> dtype<span class="token operator">=</span>torch<span class="token punctuation">.</span>double<span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 使用tensor建立張量可以使用dtype指定型別</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>a1<span class="token punctuation">.</span>type<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 
-# dtype可以使用的型別
-# torch.float32或torch.float
-# torch.float64或torch.double
-# torch.float16或torch.half
-# torch.int16或torch.short
-# torch.int32或torch.int
-# torch.int64或torch.long
-# torch.int8
-# torch.uint8
+<span class="token comment" spellcheck="true"># dtype可以使用的型別</span>
+<span class="token comment" spellcheck="true"># torch.float32或torch.float</span>
+<span class="token comment" spellcheck="true"># torch.float64或torch.double</span>
+<span class="token comment" spellcheck="true"># torch.float16或torch.half</span>
+<span class="token comment" spellcheck="true"># torch.int16或torch.short</span>
+<span class="token comment" spellcheck="true"># torch.int32或torch.int</span>
+<span class="token comment" spellcheck="true"># torch.int64或torch.long</span>
+<span class="token comment" spellcheck="true"># torch.int8</span>
+<span class="token comment" spellcheck="true"># torch.uint8</span>
 </code></pre>
 <p><em><strong>torch.FloatTensor<br>tensor([1., 2.])<br>torch.FloatTensor<br>torch.LongTensor<br>torch.DoubleTensor</strong></em></p>
 <p>可以使用一些函式建立指定形狀的張量<br>torch.ones() 元素都為1的張量<br>torch.zeros() 元素都為0的張量<br>torch.rand() 隨機分布的張量，大小為[0, 1)<br>torch.randn() 標準常態分佈的張量，平均值為0，變異數為1</p>
-<pre class=" language-python="><code class="language-python=">b1 = torch.zeros(2, 3)  # 建立2列3行的zero張量
-print(b1)
+<pre class=" language-python"><code class="language-python">b1 <span class="token operator">=</span> torch<span class="token punctuation">.</span>zeros<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 建立2列3行的zero張量</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>b1<span class="token punctuation">)</span>
 
-b2 = torch.ones(2, 3)  # 建立2列3行的one張量
-print(b2)
+b2 <span class="token operator">=</span> torch<span class="token punctuation">.</span>ones<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 建立2列3行的one張量</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>b2<span class="token punctuation">)</span>
 
-b3 = torch.rand(2, 3)  # 建立2列3行的rand張量
-print(b3)
+b3 <span class="token operator">=</span> torch<span class="token punctuation">.</span>rand<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 建立2列3行的rand張量</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>b3<span class="token punctuation">)</span>
 </code></pre>
 <p><em><strong>tensor([[0., 0., 0.],<br>        [0., 0., 0.]])<br>tensor([[1., 1., 1.],<br>        [1., 1., 1.]])<br>tensor([[0.0399, 0.2605, 0.7716],<br>        [0.6981, 0.7787, 0.2807]])</strong></em></p>
-<pre class=" language-python="><code class="language-python="># torch.manual_seed()可以設定亂數種子。當執行torch.rand()時，每次都會得到不同的亂數張量，
-# 但通常在機器學習中，需要重現結果，在這個時候可以明確指定亂數種子，讓張量保持不變。
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># torch.manual_seed()可以設定亂數種子。當執行torch.rand()時，每次都會得到不同的亂數張量，</span>
+<span class="token comment" spellcheck="true"># 但通常在機器學習中，需要重現結果，在這個時候可以明確指定亂數種子，讓張量保持不變。</span>
 
-torch.manual_seed(42)  # 設定亂數種子
-b4 = torch.rand(3, 3)
-print(b4)
+torch<span class="token punctuation">.</span>manual_seed<span class="token punctuation">(</span><span class="token number">42</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 設定亂數種子</span>
+b4 <span class="token operator">=</span> torch<span class="token punctuation">.</span>rand<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>b4<span class="token punctuation">)</span>
 </code></pre>
 <p><em><strong>tensor([[0.8823, 0.9150, 0.3829],<br>        [0.9593, 0.3904, 0.6009],<br>        [0.2566, 0.7936, 0.9408]])</strong></em></p>
-<pre class=" language-python="><code class="language-python="># 張量的操作方法名稱後面帶有底線，如zero_()會直接些改張量內記憶體內的值。
-b5 = torch.ones(3, 2)
-b6 = b5.zero_()
-print(b5)
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 張量的操作方法名稱後面帶有底線，如zero_()會直接些改張量內記憶體內的值。</span>
+b5 <span class="token operator">=</span> torch<span class="token punctuation">.</span>ones<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span>
+b6 <span class="token operator">=</span> b5<span class="token punctuation">.</span>zero_<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>b5<span class="token punctuation">)</span>
 
-# 若張量中只有1個元素，可以使用item()，將張量變純量。
-c1 = torch.tensor([2])
-c2 = c1.item()
-print(c2)
+<span class="token comment" spellcheck="true"># 若張量中只有1個元素，可以使用item()，將張量變純量。</span>
+c1 <span class="token operator">=</span> torch<span class="token punctuation">.</span>tensor<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+c2 <span class="token operator">=</span> c1<span class="token punctuation">.</span>item<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>c2<span class="token punctuation">)</span>
 
-# 其他都可以，c2轉成了純量
-print(type(b6), type(c1), type(c2))
+<span class="token comment" spellcheck="true"># 其他都可以，c2轉成了純量</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>type<span class="token punctuation">(</span>b6<span class="token punctuation">)</span><span class="token punctuation">,</span> type<span class="token punctuation">(</span>c1<span class="token punctuation">)</span><span class="token punctuation">,</span> type<span class="token punctuation">(</span>c2<span class="token punctuation">)</span><span class="token punctuation">)</span>
 
-# 將指令張量資料型別轉變
+<span class="token comment" spellcheck="true"># 將指令張量資料型別轉變</span>
 
-# 方法一
-c3 = torch.ones(2, 3, dtype=torch.double)
-print(c3.type())
-# 方法二
-c3 = torch.ones(2, 3).to(torch.double)
-print(c3.type())
-# 方法三
-c3 = torch.ones(2, 3).double()
-print(c3.type())
+<span class="token comment" spellcheck="true"># 方法一</span>
+c3 <span class="token operator">=</span> torch<span class="token punctuation">.</span>ones<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> dtype<span class="token operator">=</span>torch<span class="token punctuation">.</span>double<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>c3<span class="token punctuation">.</span>type<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 方法二</span>
+c3 <span class="token operator">=</span> torch<span class="token punctuation">.</span>ones<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">.</span>to<span class="token punctuation">(</span>torch<span class="token punctuation">.</span>double<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>c3<span class="token punctuation">.</span>type<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 方法三</span>
+c3 <span class="token operator">=</span> torch<span class="token punctuation">.</span>ones<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">.</span>double<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>c3<span class="token punctuation">.</span>type<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 </code></pre>
 <p><em><strong>tensor([[0., 0.],<br>        [0., 0.],<br>        [0., 0.]])<br>2<br>&lt;class ‘torch.Tensor’&gt; &lt;class ‘torch.Tensor’&gt; &lt;class ‘int’&gt;<br>torch.DoubleTensor<br>torch.DoubleTensor<br>torch.DoubleTensor</strong></em></p>
 <h1 id="2-張量與numpy"><a href="#2-張量與numpy" class="headerlink" title="2. 張量與numpy"></a>2. 張量與numpy</h1><p>PyTorch支援將張量轉成NumPy，只要執行Tensor.numpy()就可以將張量轉成NumPy的ndarray資料型態。</p>
-<pre class=" language-python="><code class="language-python=">d1 = torch.ones(2, 3)
-d1_np = d1.numpy()
-print(type(d1_np), type(d1), sep='\n')
+<pre class=" language-python"><code class="language-python">d1 <span class="token operator">=</span> torch<span class="token punctuation">.</span>ones<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span>
+d1_np <span class="token operator">=</span> d1<span class="token punctuation">.</span>numpy<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>type<span class="token punctuation">(</span>d1_np<span class="token punctuation">)</span><span class="token punctuation">,</span> type<span class="token punctuation">(</span>d1<span class="token punctuation">)</span><span class="token punctuation">,</span> sep<span class="token operator">=</span><span class="token string">'\n'</span><span class="token punctuation">)</span>
 </code></pre>
 <p><em><strong>&lt;class ‘numpy.ndarray’&gt;<br>&lt;class ‘torch.Tensor’&gt;</strong></em></p>
 <p>若要使用NumPy來建立PyTorch張量，可以執行torch.from_numpy()。</p>
-<pre class=" language-python="><code class="language-python=">import numpy as np
+<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> numpy <span class="token keyword">as</span> np
 
-d2_np = np.array([1, 2, 3])
-d2 = torch.from_numpy(d2_np)
-print(type(d2))
+d2_np <span class="token operator">=</span> np<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+d2 <span class="token operator">=</span> torch<span class="token punctuation">.</span>from_numpy<span class="token punctuation">(</span>d2_np<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>type<span class="token punctuation">(</span>d2<span class="token punctuation">)</span><span class="token punctuation">)</span>
 </code></pre>
 <p><em><strong>&lt;class ‘torch.Tensor’&gt;</strong></em></p>
 <p>PyTorch預設會將張量定義再CPU控制的記憶體中，如果要使用GPU加速運算，可以判別系統是否支援GPU，並且在建立張量時指定device屬性。</p>
-<pre class=" language-python="><code class="language-python=">device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-print(device)
+<pre class=" language-python"><code class="language-python">device <span class="token operator">=</span> torch<span class="token punctuation">.</span>device<span class="token punctuation">(</span><span class="token string">"cuda"</span> <span class="token keyword">if</span> torch<span class="token punctuation">.</span>cuda<span class="token punctuation">.</span>is_available<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">else</span> <span class="token string">"cpu"</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>device<span class="token punctuation">)</span>
 
-# x和y都有指定device，所以如果有偵測到GPU存在，會將張量定義再GPU控制的記憶體中
-x = torch.tensor([[1, 2, 3], [4, 5, 6]], device=device)
-y = torch.tensor([[7, 8, 9], [10, 11, 12]], device=device)
-z = x + y  # x跟y都是在GPU記憶體中，所以z也是(x跟y都要在同一個device中，不然會報錯)
+<span class="token comment" spellcheck="true"># x和y都有指定device，所以如果有偵測到GPU存在，會將張量定義再GPU控制的記憶體中</span>
+x <span class="token operator">=</span> torch<span class="token punctuation">.</span>tensor<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span> device<span class="token operator">=</span>device<span class="token punctuation">)</span>
+y <span class="token operator">=</span> torch<span class="token punctuation">.</span>tensor<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">11</span><span class="token punctuation">,</span> <span class="token number">12</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span> device<span class="token operator">=</span>device<span class="token punctuation">)</span>
+z <span class="token operator">=</span> x <span class="token operator">+</span> y  <span class="token comment" spellcheck="true"># x跟y都是在GPU記憶體中，所以z也是(x跟y都要在同一個device中，不然會報錯)</span>
 
-print(z)
+<span class="token keyword">print</span><span class="token punctuation">(</span>z<span class="token punctuation">)</span>
 </code></pre>
 <p><em><strong>cuda<br>tensor([[ 8, 10, 12],<br>        [14, 16, 18]], device=’cuda:0’)</strong></em></p>
 <p>也可以使用Tensor.to()讓張量在CPU和GPU中移動</p>
-<pre class=" language-python="><code class="language-python=">x = x.to("cpu")
-y = y.to("cpu")
-z = x + y
-print(z)
+<pre class=" language-python"><code class="language-python">x <span class="token operator">=</span> x<span class="token punctuation">.</span>to<span class="token punctuation">(</span><span class="token string">"cpu"</span><span class="token punctuation">)</span>
+y <span class="token operator">=</span> y<span class="token punctuation">.</span>to<span class="token punctuation">(</span><span class="token string">"cpu"</span><span class="token punctuation">)</span>
+z <span class="token operator">=</span> x <span class="token operator">+</span> y
+<span class="token keyword">print</span><span class="token punctuation">(</span>z<span class="token punctuation">)</span>
 
-x = x.to(device)
-y = y.to(device)
-z = x + y
-print(z)
+x <span class="token operator">=</span> x<span class="token punctuation">.</span>to<span class="token punctuation">(</span>device<span class="token punctuation">)</span>
+y <span class="token operator">=</span> y<span class="token punctuation">.</span>to<span class="token punctuation">(</span>device<span class="token punctuation">)</span>
+z <span class="token operator">=</span> x <span class="token operator">+</span> y
+<span class="token keyword">print</span><span class="token punctuation">(</span>z<span class="token punctuation">)</span>
 </code></pre>
 <p><em><strong>tensor([[ 8, 10, 12],<br>        [14, 16, 18]])<br>tensor([[ 8, 10, 12],<br>        [14, 16, 18]], device=’cuda:0’)</strong></em></p>
-<pre class=" language-python="><code class="language-python="># shape屬性可以用來查詢張量的形狀
-x1 = torch.tensor([[1, 2], [3, 4], [5, 6], [7, 8]])  # 建立4列2行的張量
-print(x1)
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># shape屬性可以用來查詢張量的形狀</span>
+x1 <span class="token operator">=</span> torch<span class="token punctuation">.</span>tensor<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 建立4列2行的張量</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>x1<span class="token punctuation">)</span>
 
-print(x1.shape)  # 列印張量形狀
+<span class="token keyword">print</span><span class="token punctuation">(</span>x1<span class="token punctuation">.</span>shape<span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 列印張量形狀</span>
 </code></pre>
 <p><em><strong>tensor([[1, 2],<br>        [3, 4],<br>        [5, 6],<br>        [7, 8]])<br>torch.Size([4, 2])</strong></em></p>
-<pre class=" language-python="><code class="language-python="># PyTorch的索引及切片與NumPy相似
-x1 = torch.tensor([[1, 2], [3, 4], [5, 6], [7, 8]])
-print(x1[1, 1])
-print(x1[1][1])
-print(x1[1, 1].item())  # 純量
+<pre class=" language-python"><code class="language-python"><span class="token comment" spellcheck="true"># PyTorch的索引及切片與NumPy相似</span>
+x1 <span class="token operator">=</span> torch<span class="token punctuation">.</span>tensor<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>x1<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>x1<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>x1<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span>item<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 純量</span>
 
-print(type(x1[1][1]))
-print(type(x1[1][1].item()))
+<span class="token keyword">print</span><span class="token punctuation">(</span>type<span class="token punctuation">(</span>x1<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>type<span class="token punctuation">(</span>x1<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span>item<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 
-print(x1[:2, 1])  # 切片到第二列，取每列第一個元素
-print(x1[:2][1])  # 切片到到二列，並取第一列的所有元素
+<span class="token keyword">print</span><span class="token punctuation">(</span>x1<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 切片到第二列，取每列第一個元素</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>x1<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 切片到到二列，並取第一列的所有元素</span>
 
-print(x1[x1 < 5])  # 印出所有小於5的元素
+<span class="token keyword">print</span><span class="token punctuation">(</span>x1<span class="token punctuation">[</span>x1 <span class="token operator">&lt;</span> <span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 印出所有小於5的元素</span>
 </code></pre>
 <p><em><strong>tensor(4)<br>tensor(4)<br>4<br>&lt;class ‘torch.Tensor’&gt;<br>&lt;class ‘int’&gt;<br>tensor([2, 4])<br>tensor([3, 4])<br>tensor([1, 2, 3, 4])</strong></em></p>
-<pre class=" language-python="><code class="language-python=">
+<pre class=" language-python"><code class="language-python">
 </code></pre>
 
                 
@@ -715,7 +715,7 @@ print(x1[x1 < 5])  # 印出所有小於5的元素
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
-                            odinx123
+                            Odinx123
                             
                         </span>
                     </div>
@@ -859,7 +859,7 @@ print(x1[x1 < 5])  # 印出所有小於5的元素
                 <span id="year">2023</span>
             
             <span id="year">2023</span>
-            <a href="/about" target="_blank">odinx123</a>
+            <a href="/about" target="_blank">Odinx123</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
             |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
             <br>
