@@ -395,14 +395,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字數:&nbsp;&nbsp;
-                    196
+                    668
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>閱讀時長:&nbsp;&nbsp;
-                    1 分
+                    3 分
                 </div>
                 
 
@@ -427,47 +427,47 @@
 <li>所以取k個大小的陣列就好</li>
 <li>裡面用排序需要nlog(k)、直接調整位置只要2k</li>
 </ul>
-<pre class=" language-cpp="><code class="language-cpp=">#include <iostream>
-using namespace std;
+<pre class=" language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span>
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
 
-int main() {
-    int inpt[] = {-20, 9, 15, 6, 17, 30};
-    int size_ = sizeof(inpt)/sizeof(int);
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">int</span> inpt<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token operator">-</span><span class="token number">20</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">,</span> <span class="token number">15</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">17</span><span class="token punctuation">,</span> <span class="token number">30</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> size_ <span class="token operator">=</span> <span class="token keyword">sizeof</span><span class="token punctuation">(</span>inpt<span class="token punctuation">)</span><span class="token operator">/</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    int n;
-    int k = 3;
-    int* arr = new int[k]();
-    for (int i = 0; i < k; ++i)
-        arr[i] = INT32_MIN;
+    <span class="token keyword">int</span> n<span class="token punctuation">;</span>
+    <span class="token keyword">int</span> k <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span><span class="token operator">*</span> arr <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token keyword">int</span><span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> k<span class="token punctuation">;</span> <span class="token operator">++</span>i<span class="token punctuation">)</span>
+        arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> INT32_MIN<span class="token punctuation">;</span>
 
-    for (int i = 0; i < size_; ++i) {
-        n = inpt[i];
-        // 只有n比最小的第k數字大才需要有動作
-        if (n > arr[k-1]) {
-            // 找到n應該放的位置
-            int pos = 0;
-            for (int j = k-1; j >= 0; --j) {
-                if (n <= arr[j]){
-                    pos = j;
-                    break;
-                }
-            }
-            // 將比n小的數值都往後移動
-            for (int j = k-1; j > pos; --j)
-                arr[j] = arr[j-1];
-            // 將n放入
-            arr[pos] = n;
-        }
-    }
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> size_<span class="token punctuation">;</span> <span class="token operator">++</span>i<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        n <span class="token operator">=</span> inpt<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">// 只有n比最小的第k數字大才需要有動作</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>n <span class="token operator">></span> arr<span class="token punctuation">[</span>k<span class="token number">-1</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token comment" spellcheck="true">// 找到n應該放的位置</span>
+            <span class="token keyword">int</span> pos <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+            <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> k<span class="token number">-1</span><span class="token punctuation">;</span> j <span class="token operator">>=</span> <span class="token number">0</span><span class="token punctuation">;</span> <span class="token operator">--</span>j<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>n <span class="token operator">&lt;=</span> arr<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                    pos <span class="token operator">=</span> j<span class="token punctuation">;</span>
+                    <span class="token keyword">break</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+            <span class="token comment" spellcheck="true">// 將比n小的數值都往後移動</span>
+            <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> k<span class="token number">-1</span><span class="token punctuation">;</span> j <span class="token operator">></span> pos<span class="token punctuation">;</span> <span class="token operator">--</span>j<span class="token punctuation">)</span>
+                arr<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> arr<span class="token punctuation">[</span>j<span class="token number">-1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+            <span class="token comment" spellcheck="true">// 將n放入</span>
+            arr<span class="token punctuation">[</span>pos<span class="token punctuation">]</span> <span class="token operator">=</span> n<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
 
-    for (int i = 0; i < k; ++i)
-        cout << arr[i] << " ";
-    cout << "\n";
-    cout << arr[k-1] << endl;
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> k<span class="token punctuation">;</span> <span class="token operator">++</span>i<span class="token punctuation">)</span>
+        cout <span class="token operator">&lt;&lt;</span> arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&lt;&lt;</span> <span class="token string">" "</span><span class="token punctuation">;</span>
+    cout <span class="token operator">&lt;&lt;</span> <span class="token string">"\n"</span><span class="token punctuation">;</span>
+    cout <span class="token operator">&lt;&lt;</span> arr<span class="token punctuation">[</span>k<span class="token number">-1</span><span class="token punctuation">]</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
 
-    system("pause");
-    return 0;
-}
+    <span class="token function">system</span><span class="token punctuation">(</span><span class="token string">"pause"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 </code></pre>
 <h2 id="時間-amp-空間複雜度"><a href="#時間-amp-空間複雜度" class="headerlink" title="時間&amp;空間複雜度"></a>時間&amp;空間複雜度</h2><h3 id="空間複雜度"><a href="#空間複雜度" class="headerlink" title="空間複雜度"></a>空間複雜度</h3><ul>
 <li>全部空間 = S( P ) = c + Sp(I)<br>c: 與輸入輸出無關的變數空間(例如變數宣告。<br>Sp(I): 輸入影響到的空間，==如果輸入不會影響到變數空間變化就是0。==</li>
@@ -875,7 +875,7 @@ int main() {
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站點總字數:&nbsp;<span
-                class="white-color">1.6k</span>&nbsp;字
+                class="white-color">2.1k</span>&nbsp;字
             
             
             
